@@ -1,0 +1,25 @@
+<%= form_with(model: @contact, local: true) do |form| %>
+  <% if @contact.errors.any? %>
+  <div class="alert alert-warning">
+    <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this <%= @contact.content %> from being saved:</h2>
+    <ul>
+    <% @contact.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="name">
+   <%= form.label :name %>
+   <%= form.text_field :name %>
+  </div>
+  <div class="blog_email">
+   <%= form.label :email %>
+   <%= form.text_field :email %>
+  </div>
+  <div class="blog_content">
+   <%= form.label :content %>
+   <%= form.text_field :content %>
+  </div>
+   <%= form.submit %>
+<% end %>
